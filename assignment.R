@@ -15,13 +15,13 @@ my_data <- works |>
 # (2) Используйте функцию separate(), чтобы разделить 
 # столбец с именем и фамилией на два новых: author, name. 
 # Удалите столбец name
-my_data_noname <- my_data |>
+my_data2 <- my_data |>
   separate(author, into = c("author", "name"), sep = ", ") |> 
   select(-name)
 
 # (3) Используйте group_by() и summarise(), чтобы узнать,
 # сколько произведений Шекспира и Марлоу хранится в библиотеке Gutenberg
 # новый столбец должен называться n, не делайте сортировку 
-my_data_n <- my_data_noname |>
+my_data3 <- my_data2 |>
   group_by(author) |> 
   summarise(n = n())
